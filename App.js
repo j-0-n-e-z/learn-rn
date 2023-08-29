@@ -1,5 +1,5 @@
 import { Platform, SafeAreaView, StyleSheet } from 'react-native'
-import PokemonCard from './components/PokemonCard'
+import PokemonCard from './components/PokemonCard/PokemonCard'
 
 export default function App() {
 	const charmanderData = {
@@ -12,7 +12,7 @@ export default function App() {
 	}
 	return (
 		<SafeAreaView style={styles.container}>
-      <PokemonCard {...charmanderData} />
+			<PokemonCard {...charmanderData} />
 		</SafeAreaView>
 	)
 }
