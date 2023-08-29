@@ -36,7 +36,8 @@ export default function PokemonCard({
 			<Image
 				source={image}
 				style={styles.image}
-				accessibilityLabel={`${name} pokemon`}
+				aria-label={`${name} pokemon`}
+				resizeMode='contain'
 			/>
 
 			<View style={styles.typeContainer}>

@@ -33,7 +33,7 @@ export const styles = StyleSheet.create({
 		fontSize: 22
 	},
 	image: {
-		width: 200,
+		width: '100%',
 		height: 200,
 		marginBottom: 16
 	},
