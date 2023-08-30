@@ -1,18 +1,10 @@
-import { Image, ImageSourcePropType, Text, View } from 'react-native'
+import { FC } from 'react'
+import { Image, Text, View } from 'react-native'
+import { Pokemon } from '../../data/pokemons'
 import { styles } from './PokemonCardStyles'
 import { getTypesDetails } from './getTypesDetails'
-import { FC } from 'react'
 
-interface PokremonCardProps {
-	name: string
-	image: ImageSourcePropType
-	type: string
-	hp: number
-	moves: string[]
-	weaknesses: string[]
-}
-
-const PokemonCard: FC<PokremonCardProps> = ({
+const PokemonCard: FC<Pokemon> = ({
 	name,
 	image,
 	type,
@@ -24,33 +16,39 @@ const PokemonCard: FC<PokremonCardProps> = ({
 
 	return (
 		<View style={styles.card}>
-			<View style={styles.nameContainer}>
-				<Text style={styles.name}>{name}</Text>
-				<Text style={styles.hp}>❤️{hp}</Text>
+			<View className='flex-row justify-between items-center w-full mb-8'>
+				<Text className='text-[30px] font-bold'>{name}</Text>
+				<Text className='text-[22px]'>❤️ {hp}</Text>
 			</View>
 
 			<Image
 				source={image}
-				style={styles.image}
+				className='w-full h-[200] mb-4'
 				aria-label={`${name} pokemon`}
 				resizeMode='contain'
 			/>
 
-			<View style={styles.typeContainer}>
-				<View style={[styles.badge, { borderColor }]}>
-					<Text style={styles.typeEmoji}>{emoji}</Text>
-					<Text style={styles.typeText}>{type}</Text>
+			<View className='flex-row justify-center mb-4'>
+				<View
+					className={`flex-row items-center gap-x-1 py-2 px-4 rounded-full border-4 ${borderColor}`}
+				>
+					<Text className='text-[22px]'>{emoji}</Text>
+					<Text className='text-[22px]'>{type}</Text>
 				</View>
 			</View>
 
-			<View style={styles.movesContainer}>
-				<Text style={styles.movesTitle}>Moves:</Text>
-				<Text style={styles.movesText}>{moves.join(', ')}</Text>
+			<View className='flex-row items-center flex-wrap gap-x-2 mb-2'>
+				<Text className='text-[22px] font-[500]'>Moves:</Text>
+				<Text className='text-[18px] font-[500] text-[#4164ff]'>
+					{moves.join(', ')}
+				</Text>
 			</View>
 
-			<View style={styles.weaknessContainer}>
-				<Text style={styles.weaknessTitle}>Weaknesses:</Text>
-				<Text style={styles.weaknessText}>{weaknesses.join(', ')}</Text>
+			<View className='flex-row items-center flex-wrap gap-x-2 mb-2'>
+				<Text className='text-[22px] font-[500]'>Weaknesses:</Text>
+				<Text className='text-[18px] font-[500] text-[#ff1e00]'>
+					{weaknesses.join(', ')}
+				</Text>
 			</View>
 		</View>
 	)

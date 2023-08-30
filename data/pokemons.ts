@@ -1,4 +1,15 @@
-export const pokemons = [
+import { ImageSourcePropType } from "react-native"
+
+export interface Pokemon {
+	name: string
+	image: ImageSourcePropType
+	type: string
+	hp: number
+	moves: string[]
+	weaknesses: string[]
+}
+
+export const pokemons: Pokemon[] = [
 	{
 		name: 'Charmander',
 		image: require('../assets/pokemons/charmander.png'),

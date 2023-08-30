@@ -1,23 +1,22 @@
-import { Platform, SafeAreaView, ScrollView, StyleSheet } from 'react-native'
+/// <reference types="nativewind/types" />
+import { Platform, SafeAreaView, ScrollView } from 'react-native'
 import PokemonCard from './components/PokemonCard/PokemonCard'
 import { pokemons } from './data/pokemons'
 
 export default function App() {
 	return (
-		<SafeAreaView style={styles.container}>
+		<SafeAreaView
+			className={`flex-1 bg-[#f5f5f5] ${
+				Platform.OS === 'android' ? 'pt-7' : ''
+			}`}
+		>
 			<ScrollView>
-				{pokemons.map(pokemon => (
-					<PokemonCard key={pokemon.name} {...pokemon} />
-				))}
+				{pokemons
+					.sort(() => Math.random() - 0.5)
+					.map(pokemon => (
+						<PokemonCard key={pokemon.name} {...pokemon} />
+					))}
 			</ScrollView>
 		</SafeAreaView>
 	)
 }
-
-const styles = StyleSheet.create({
-	container: {
-		flex: 1,
-		backgroundColor: '#f5f5f5',
-		paddingTop: Platform.OS === 'android' ? 25 : 0
-	}
-})

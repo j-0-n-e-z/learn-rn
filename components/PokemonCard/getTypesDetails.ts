@@ -1,14 +1,14 @@
 export const getTypesDetails = (type: string) => {
 	switch (type.toLowerCase()) {
 		case 'electric':
-			return { borderColor: '#FFD700', emoji: '⚡️' }
+			return { borderColor: 'border-[#FFD700]', emoji: '⚡️' }
 		case 'water':
-			return { borderColor: '#6493EA', emoji: '💧' }
+			return { borderColor: 'border-[#6493EA]', emoji: '💧' }
 		case 'fire':
-			return { borderColor: '#FF5733', emoji: '🔥' }
+			return { borderColor: 'border-[#FF5733]', emoji: '🔥' }
 		case 'grass':
-			return { borderColor: '#66CC66', emoji: '🌿' }
+			return { borderColor: 'border-[#66CC66]', emoji: '🌿' }
 		default:
-			return { borderColor: '#A0A0A0', emoji: '❓' }
+			return { borderColor: 'border-[#A0A0A0]', emoji: '❓' }
 	}
 }
