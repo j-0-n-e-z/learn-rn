@@ -1,4 +1,3 @@
-/// <reference types="nativewind/types" />
 import { Platform, SafeAreaView, ScrollView } from 'react-native'
 import PokemonCard from './components/PokemonCard/PokemonCard'
 import { pokemons } from './data/pokemons'
@@ -14,7 +13,7 @@ export default function App() {
 				{pokemons
 					.sort(() => Math.random() - 0.5)
 					.map(pokemon => (
-						<PokemonCard key={pokemon.name} {...pokemon} />
+						<PokemonCard key={pokemon.name} pokemon={pokemon} />
 					))}
 			</ScrollView>
 		</SafeAreaView>

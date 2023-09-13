@@ -3,14 +3,12 @@ import { Image, Text, View } from 'react-native'
 import { Pokemon } from '../../data/pokemons'
 import { getTypesDetails } from './getTypesDetails'
 
-const PokemonCard: FC<Pokemon> = ({
-	name,
-	image,
-	type,
-	hp,
-	moves,
-	weaknesses
-}) => {
+interface PokemonCardProps {
+	pokemon: Pokemon
+}
+
+const PokemonCard: FC<PokemonCardProps> = ({ pokemon }) => {
+	const { name, image, type, hp, moves, weaknesses } = pokemon
 	const { borderColor, emoji } = getTypesDetails(type)
 
 	return (
